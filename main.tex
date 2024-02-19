@@ -1,0 +1,220 @@
+%% abtex2-modelo-relatorio-tecnico.tex, v-1.9.2 laurocesar
+%% Copyright 2012-2014 by abnTeX2 group at http://abntex2.googlecode.com/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://abntex2.googlecode.com/
+%%
+%% This work consists of the files abntex2-modelo-relatorio-tecnico.tex,
+%% abntex2-modelo-include-comandos and abntex2-modelo-references.bib
+%%
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% abnTeX2: Modelo de Relatório Técnico/Acadêmico em conformidade com 
+% ABNT NBR 10719:2011 Informação e documentação - Relatório técnico e/ou
+% científico - Apresentação
+% ------------------------------------------------------------------------ 
+% ------------------------------------------------------------------------
+
+% Documento criado baseado no template disponibilizado pelo
+% Prof. Dr. Geraldo Braz Junior, membro do corpo docente do PPGCC - UFMA
+% a partir do template "Template TCC Ciência da Computação UFMA" 
+% disponibilizado no OverLeaf
+
+\documentclass[
+% -- opções da classe memoir --
+12pt,				% tamanho da fonte
+openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+oneside,			% para impressão em verso e anverso. Oposto a oneside
+a4paper,			% tamanho do papel. 
+english,			% idioma adicional para hifenização
+french,				% idioma adicional para hifenização
+spanish,			% idioma adicional para hifenização
+brazil				% o último idioma é o principal do documento
+]{abntex2}
+	
+\usepackage{lmodern}				% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}			% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}			% Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}				% Usado pela Ficha catalográfica
+\usepackage{indentfirst}			% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}					% Controle das cores
+\usepackage{graphicx}				% Inclusão de gráficos e imagens
+\usepackage{microtype} 				% para melhorias de justificação
+\usepackage{mathtools}				% Matemática
+\usepackage{multirow}				% Tabelas
+\usepackage[table,xcdraw]{xcolor}	% Tabelas (cores)
+\usepackage{pdfpages}
+\usepackage{lscape}
+\usepackage{float}
+\usepackage{makeidx}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{array}
+\usepackage{gensymb}
+\usepackage{float}
+
+\hyphenpenalty=10000
+
+\usepackage{lipsum}				% para geração de dummy text
+
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf, abnt-etal-list=0]{abntex2cite}	% Citações padrão ABNT
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+
+\renewcommand{\backref}{}
+
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+	
+\newcommand{\STAB}[1]{\begin{tabular}{@{}c@{}}#1\end{tabular}}
+	
+\titulo{Relatório sobre Inclusão Digital e Inteligência Artificial na Educação}
+\autor{Nome do Autor}
+\local{São Luís - MA}
+\data{2024}
+\orientador{Prof. Ma. Patrícia Azevedo de Oliveira}
+%\coorientador{Prof. Dr. Anselmo Cardoso de Paiva} %se houver
+\instituicao{
+Especialização em Análise de Dados e Inteligência Artificial
+\par 
+Universidade Federal do Maranhão
+}
+\tipotrabalho{Relatório}
+\preambulo{Relatório apresentado como requisito parcial para obtenção do pontos na disciplina de Fundamentos e Práticas na EAD, à Especialização em Análise de Dados e Inteligência Artificial.}
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+\makeindex
+
+\begin{document}
+
+\selectlanguage{brazil}
+
+\frenchspacing 
+
+% ---
+% Capa
+% ---
+\renewcommand{\imprimircapa}{%
+\begin{capa}%
+\center
+\includegraphics[scale=0.25]{imagens/logoufma.png} \\ 
+\vspace{1cm}
+\ABNTEXchapterfont\Large UNIVERSIDADE FEDERAL DO MARANHÃO \\
+\ABNTEXsectionfont\Large Especialização em Análise de Dados e Inteligência Artificial \\
+
+\vspace*{5cm}
+
+\begin{center}
+{\ABNTEXsectionfont\Large\imprimirautor} \\
+%\vfill
+\ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+\end{center}
+\vfill
+\large\imprimirlocal \\
+\large\imprimirdata
+\vspace*{1cm}
+\end{capa}
+}	
+
+\imprimircapa
+
+\imprimirfolhaderosto
+
+% ---
+% inserir o sumario
+% ---
+
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+	
+
+\textual
+
+% Remove o número do capítulo da numeração de seções e subseções
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+
+\section{Introdução}
+Coloque o conteúdo da introdução aqui.
+
+\begin{itemize}
+    \item Item 1
+    \item Item 2
+    \item Item 3
+\end{itemize}
+
+\section{Desenvolvimento}
+
+\subsection{Benefícios da IA na EAD}
+Coloque o conteúdo do desenvolvimento aqui.
+
+
+\subsection{Mudança de Práticas na EAD}
+Coloque o conteúdo do desenvolvimento aqui.
+
+\subsection{Otimização do Ensino pelos Professores com IA}
+Coloque o conteúdo do desenvolvimento aqui.
+
+
+\subsection{Limites, Possibilidades e Desafios da Implementação da IA na Educação}
+Coloque o conteúdo do desenvolvimento aqui.
+
+\section{Considerações Finais}
+Coloque o conteúdo das considerações finais aqui.
+
+\section{Referências}
+André, C. F., Azevedo, A. B. de, \& Andrade, F. (2023). Inclusão digital e inteligência artificial na educação: avanços, desafios e oportunidades para alunos e professores da Educação Básica à Educação Superior.
+% Substitua "Ano", "Nome da Revista", "volume(edição)", "páginas" pelos dados reais do artigo utilizado.
+% Inclua outras referências bibliográficas conforme necessário.
+
+\phantompart
+
+\postextual
+
+\end{document}

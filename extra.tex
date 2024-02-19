@@ -1,0 +1,65 @@
+\chapter{Algumas Dicas de Latex}\label{cap:extra}
+
+Algumas dicas no preenchimento:
+
+Para quebrar um parágrafo, separe eles por uma linha em branco. 
+
+Para referenciar no texto seções ou capítulos, use ref, como em ".... o Capítulo \ref{cap:fundamentacao_teorica} apresenta a fundamentação teórica utilizada no trabalho ... ". Lembre-se, os labels dos componentes no texto devem ser únicos!
+
+Para realizar citações, use o comando cite. Quando a citação é indireta, use \cite{associaccao2005abnt}. Quando a citação é direta use \citeonline{associaccao2005abnt}.
+
+Para inserção de figuras, a legenda deve ficar acima, e fonte abaixo. Quando a fonte for o próprio autor, deve-se escrever "Fonte: acervo do autor". Para referencia a figura, use o ref, como " .... Figura \ref{fig:ex1} .... ".
+
+\begin{figure}[ht!]
+\centering
+\caption{Um exemplo de posicionamento de figura.}
+\includegraphics[scale=0.35]{imagens/fig1.png}
+\legend{Fonte: \cite{associaccao2005abnt}.}
+\label{fig:ex1}
+\end{figure}
+
+Uma das formas, em latex, de colocar múltiplas figuras lado a lado é usando o array.
+
+\begin{figure}[ht!]
+\centering
+\caption{Um exemplo de vetor de figuras.}
+$
+\begin{array}{cc}
+     \includegraphics[scale=0.25]{imagens/fig1.png} & 
+     \includegraphics[scale=0.25]{imagens/fig1.png}\\
+     (a) &
+     (b)
+\end{array}
+$
+\legend{Fonte: acervo do autor.}
+\label{fig:ex2}
+\end{figure}
+
+Equações numeradas devem ser inseridas usando o comando equation. Caso precise referenciá-las, use ref, com ".... Equação \ref{eq:r_mim_max} ... "
+
+\begin{equation}
+\centering
+r = (x_{max} - x_{min})G(x) + x_{min} 
+\label{eq:r_mim_max}
+\end{equation}
+
+Tabelas devem sempre ter a legenda na parte acima. Para referenciá-las, use ref, com ".... Tabela \ref{tab:resultados_1} ... "
+
+
+
+\begin{table}[htb]
+		\centering
+		\caption{Resultado do ....}
+		\label{tab:resultados_1}
+		\begin{tabular}{cccc}
+			\hline
+    \textbf{Resultado }& & \textbf{Acertos/Total} & \textbf{Acurácia } \\\hline
+
+	\textbf{Acertou tudo}&    & 245/361 & 67,86\% \\
+	\textbf{Errou 1}     &    & 69/361  & 19,11\% \\
+	\textbf{Errou 2}     &    & 18/361  & 4,98\%  \\
+	\textbf{Errou 3}     &    & 9/361   & 2,49\%  \\
+	\textbf{Errou 4}     &    & 5/361   & 1,38\%  \\
+	\textbf{Errou tudo}  &    & 15/361  & 4,15\%  \\ \hline
+	\end{tabular}
+\end{table}
